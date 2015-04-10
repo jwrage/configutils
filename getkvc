@@ -1,0 +1,5 @@
+#!/bin/sh
+# Get all resources then use jq to filter based on containing the specified value
+
+./getconfig $1 | jq '.[] | select(.'$2' | contains("'"$3"'"))'
+

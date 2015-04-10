@@ -1,0 +1,4 @@
+# Set the location and path to the config service API. Trailing slash MUST be omitted.
+
+CONFSERVER="http://api2.oneapidev.org/api"
+

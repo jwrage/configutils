@@ -1,0 +1,14 @@
+#!/bin/sh
+# Sets the value of a field in a resource and updates it on the server. Note that all data types aren't handled gracefully. Booleans are detected and handled if passed to the utility in lower case.
+
+. config.txt
+
+# this test is required to see if a boolean value is being set; if it is a boolean (must be passed as lower case 'true' or 'false') then quotes are not added to the JSON value.
+
+if [ "$3" == "false" ] || [ "$3" == "true" ]; then
+  NEWOBJ=$(./getconfig $1 | jq '.'$2'='$3)
+else
+  NEWOBJ=$(./getconfig $1 | jq '.'$2'='\""$3"\")
+fi
+
+curl -X PUT -H "Content-Type: application/json" -d "$NEWOBJ" "$CONFSERVER/$1"

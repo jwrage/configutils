@@ -1,0 +1,35 @@
+** configutils **
+
+This set is simple set of utilities that enables quick and easy interaction with the ricOneAPI config service. Please note that none of the utilities perform safety or sanity checks at this time; they're basically just a convenient wrapper for CURL and JQ. Use at your own risk!
+
+config.txt	Establishes the config service's location for all utilities.
+
+getconfig	GETs resources from the config service.
+		
+		Syntax: getconfig <resource>
+
+getkv		Returns objects whose keys equal the specified value.
+
+		Syntax: getkv <resource> <key> <value>
+
+getkvc		Returns objects whose key contains the specified value.
+
+		Syntax: getkvc <resource> <key> <value>
+
+postfconfig	POSTs a JSON file to the specified resource (create new)
+
+		Syntax: postconfig <resource> <file>
+
+putfconfig	PUTs a JSON file to the specific resource (update).
+
+		Syntax: putfconfig <resource> <file>
+
+rmconfig	DELETEs a resource from the config service.
+
+		rmconfig <resource>
+
+setkv		Sets and updates the value of a field in a resource instance.
+		Booleans are a known special case; other undiscovered special cases may exist.
+
+		Syntax: setkv <resource> <key> <value>
+

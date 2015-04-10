@@ -1,0 +1,6 @@
+#!/bin/sh
+# Delete a resource from the config service
+
+. config.txt
+
+curl -X DELETE "$CONFSERVER/$1"

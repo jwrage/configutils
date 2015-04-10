@@ -1,0 +1,8 @@
+#!/bin/sh
+# Post a JSON file to the config service
+#
+
+. config.txt
+
+curl -X POST -H "Content-Type: application/json" "$CONFSERVER/$1" -d @$2
+

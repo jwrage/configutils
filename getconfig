@@ -1,0 +1,12 @@
+#!/bin/sh
+# Do a get on the config service. Other utilities in this suite depend on this one.
+#
+# -p option pipes to jq to "pretty print" the output
+
+. config.txt
+
+if [ $1 == "-p" ]; then
+	curl -H "Accept: application/json" "$CONFSERVER/$2" | jq '.[]'
+else
+	curl -H "Accept: application/json" "$CONFSERVER/$1"
+fi
