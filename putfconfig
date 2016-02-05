@@ -4,5 +4,5 @@
 
 . config.txt
 
-curl -X PUT -H "Content-Type: application/json" "$CONFSERVER/$1" -d @$2
+curl -X PUT -H "Content-Type: application/json" "$CONFSERVER/$1?access_token=$ACCESSTOKEN" -d @$2
 

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+NEWAPP='{"longDescription": "$1",'\
+'"type": null,'\
+'"name": "$2",'\
+'"permTemplate": null,'\
+'"status": "0",'\
+'"profile_id": "$3",'\
+'"tags": null,'\
+'"licenseName": "N/A",'\
+'"providerSecret": null,'\
+'"siteUrl": null,'\
+'"vendor_id": "$4",'\
+'"iconUrl": "$5",'\
+'"sis_id": null,'\
+'"public": null,'\
+'"severityLevelDataAPI": "WARN",'\
+'"shortDescription": null,'\
+'"title": "$6",'\
+'"id": "$7"}'
+echo $NEWAPP
+
+./postconfig app "$NEWAPP"

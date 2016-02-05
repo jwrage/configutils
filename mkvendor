@@ -1,0 +1,11 @@
+#!/bin/bash
+
+NEWVENDOR='{"website":"'$1'",'\
+'"status":"'$2'",'\
+'"name":"'$3'",'\
+'"id":"'$4'",'\
+'"enabled":'$5'}'
+
+echo $NEWVENDOR
+
+./postconfig vendor "$NEWVENDOR"

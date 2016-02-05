@@ -1,0 +1,21 @@
+#!/bin/sh
+# Link an app to a district
+
+. config.txt
+
+APPLINK='{"district_id": "'$2'",'\
+'"timestamp":"",'\
+'"confirmConnect": false,'\
+'"account":"",'\
+'"app_id": "'$1'",'\
+'"id":"0",'\
+'"confirmAuthorized":false}'
+
+echo Linking district $2 to app $1
+echo $APPLINK
+echo 
+
+curl -H "Content-Type: application/json" -X PUT "$CONFSERVER/app/$1/district/rel/$2?access_token=$ACCESSTOKEN"
+
+echo
+

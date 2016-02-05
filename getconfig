@@ -6,7 +6,7 @@
 . config.txt
 
 if [ $1 == "-p" ]; then
-	curl -H "Accept: application/json" "$CONFSERVER/$2" | jq '.[]'
+	curl -H "Accept: application/json" "$CONFSERVER/$2?access_token=$ACCESSTOKEN" | jq '.[]'
 else
-	curl -H "Accept: application/json" "$CONFSERVER/$1"
+	curl -H "Accept: application/json" "$CONFSERVER/$1?access_token=$ACCESSTOKEN"
 fi

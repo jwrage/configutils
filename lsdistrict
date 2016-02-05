@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$1" == "-app" ]; then
+  ./getconfig -p district/$2/app
+else
+  ./getconfig -p district
+fi

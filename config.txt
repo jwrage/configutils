@@ -1,4 +1,20 @@
 # Set the location and path to the config service API. Trailing slash MUST be omitted.
 
-CONFSERVER="http://api2.oneapidev.org/api"
+CONFSERVER="http://config.test.ricone.org/api"
 
+echo Using config server $CONFSERVER
+echo
+
+if [[ -z "$CONFUSER" ]]; then 
+  read -p "Config username:" CONFUSER
+fi
+
+if [[ -z "$CONFPWD" ]]; then 
+  read -p "Config password:" CONFPWD
+fi
+
+ACCESSTOKEN=$(curl -H "Content-Type: application/json" -X POST -d '{"username":"'$CONFUSER'","password":"'$CONFPWD'"}' $CONFSERVER"/Users/login" | jq '.id' | sed 's/^.\(.*\).$/\1/')
+
+echo
+echo Received accesstoken: $ACCESSTOKEN
+echo

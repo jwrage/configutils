@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./getconfig -p provider
